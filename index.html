@@ -3,6 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario de Inicio de Sesión</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .login-contenedor {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input:focus {
+      border: 1px solid #2575fc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2575fc;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1b5edc;
+    }
+  </style>
   <script>
     function login(event) {
       event.preventDefault(); // Evita que se recargue la página
@@ -19,15 +83,17 @@
   </script>
 </head>
 <body>
-  <h2>Iniciar Sesión</h2>
-  <form onsubmit="login(event)">
-    <label for="usuario">Usuario:</label><br>
-    <input type="text" id="usuario" name="usuario" required><br><br>
+  <div class="login-contenedor">
+    <h2>Iniciar Sesión</h2>
+    <form onsubmit="login(event)">
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
 
-    <label for="contrasena">Contraseña:</label><br>
-    <input type="password" id="contrasena" name="contrasena" required><br><br>
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
 
-    <button type="submit">Iniciar</button>
-  </form>
+      <button type="submit">Iniciar</button>
+    </form>
+  </div>
 </body>
 </html>
