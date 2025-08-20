@@ -55,6 +55,28 @@
     .botones-nav {
       margin-top: 20px;
     }
+
+    /* 🔹 Responsivo */
+    @media (max-width: 600px) {
+      .contenedor {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      a, button {
+        width: 100%;
+        max-width: 280px;
+        font-size: 0.95rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -64,7 +86,7 @@
 
     <div class="botones-nav">
       <button id="btnPrev">⬅ Anterior</button>
-      <a href="episodios.html" style="background-color: rgb(168, 15, 15);">⬅ Volver a la lista</a>
+      <a href="episodios.html" style="background-color: rgb(168, 15, 15);">Volver a la lista</a>
       <button id="btnNext">Siguiente ➡</button>
     </div>
   </div>

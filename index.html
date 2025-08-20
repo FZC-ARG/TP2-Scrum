@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 🔑 Hace que sea responsive -->
   <title>Formulario de Inicio de Sesión</title>
   <style>
     body {
@@ -12,20 +13,23 @@
       justify-content: center;
       align-items: center;
       margin: 0;
+      padding: 15px;
     }
 
     .login-contenedor {
       background: #fff;
-      padding: 30px 40px;
+      padding: 30px 25px;
       border-radius: 12px;
       box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
       text-align: center;
-      width: 300px;
+      width: 100%;
+      max-width: 350px; /* Se adapta al tamaño de pantalla */
     }
 
     h2 {
       margin-bottom: 20px;
       color: #333;
+      font-size: 1.5em;
     }
 
     label {
@@ -34,11 +38,12 @@
       margin-bottom: 6px;
       font-weight: bold;
       color: #444;
+      font-size: 0.9em;
     }
 
     input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 15px;
       border-radius: 6px;
       border: 1px solid #ccc;
@@ -53,7 +58,7 @@
 
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       background: #2575fc;
       color: white;
       font-size: 16px;
@@ -66,10 +71,26 @@
     button:hover {
       background: #1b5edc;
     }
+
+    /* 📱 Responsivo para móviles */
+    @media (max-width: 480px) {
+      .login-contenedor {
+        padding: 20px 15px;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      input, button {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
   </style>
   <script>
     function login(event) {
-      event.preventDefault(); // Evita que se recargue la página
+      event.preventDefault(); // Evita recargar la página
       
       const usuario = document.getElementById("usuario").value;
       const contrasena = document.getElementById("contrasena").value;

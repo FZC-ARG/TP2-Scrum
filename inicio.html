@@ -23,7 +23,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      margin-bottom: 0%;
       padding: 0 20px;
     }
 
@@ -43,7 +42,7 @@
     }
 
     .btn {
-      margin-top: 30px;
+      margin-top: 15px;
       padding: 12px 30px;
       background-color: #6c63ff;
       color: white;
@@ -58,9 +57,19 @@
       background-color: #4e47d6;
     }
 
+    .btn.red {
+      background-color: rgb(168, 15, 15);
+    }
+
     section {
       padding: 60px 20px;
       text-align: center;
+    }
+
+    section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 
     section h2 {
@@ -84,6 +93,62 @@
       font-size: 0.9em;
       color: #888;
     }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+
+      .btn {
+        width: 90%;
+        max-width: 250px;
+      }
+
+      section {
+        padding: 40px 15px;
+      }
+
+      section h2 {
+        font-size: 2em;
+      }
+
+      section p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        height: auto;
+        padding: 40px 10px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      header p {
+        font-size: 0.9em;
+      }
+
+      .btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+      }
+
+      section h2 {
+        font-size: 1.5em;
+      }
+
+      section p {
+        font-size: 0.9em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -91,12 +156,13 @@
   <header>
     <h1>Sousou no Frieren</h1>
     <p>Una historia sobre el tiempo, la memoria y los lazos que perduran más allá de la aventura. Acompaña a Frieren en su viaje hacia lo desconocido.</p>
-    <button onclick="window.location.href='index.html'" class="btn" style="background-color: rgb(168, 15, 15);">Cerrar Sesión</button>
-    <button onclick="window.location.href='episodios.html'" class="btn">Ver Episodios</button>
     
+    <button onclick="window.location.href='index.html'" class="btn red">Cerrar Sesión</button>
+    <button onclick="window.location.href='episodios.html'" class="btn">Ver Episodios</button>
   </header>
+
   <section> 
-    <img src="https://a.storyblok.com/f/178900/1280x1809/7f68d0c0df/frieren-beyond-journey-s-end-second-visual.jpg/m/filters:quality(95)format(webp)" alt="Imagen de IMDb" width="600">
+    <img src="https://a.storyblok.com/f/178900/1280x1809/7f68d0c0df/frieren-beyond-journey-s-end-second-visual.jpg/m/filters:quality(95)format(webp)" alt="Imagen de IMDb">
 
     <h2>Sobre el Anime</h2>
     
