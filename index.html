@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <title>Formulario de Inicio de Sesión</title>
   <script>
@@ -29,5 +30,92 @@
 
     <button type="submit">Iniciar</button>
   </form>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Login - Inicio de Sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1><i class="fas fa-user-circle"></i> Iniciar Sesión</h1>
+                <p>Ingresa tus credenciales para acceder</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="ejemplo@correo.com"
+                        required
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <div class="password-input">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Ingresa tu contraseña"
+                            required
+                        >
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkmark"></span>
+                        Recordar mi sesión
+                    </label>
+                </div>
+                
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-text">Iniciar Sesión</span>
+                    <span class="btn-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Validando...
+                    </span>
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                <p>¿No tienes cuenta? <a href="#" class="signup-link">Regístrate aquí</a></p>
+            </div>
+        </div>
+        
+        <!-- Notificación de éxito -->
+        <div class="notification success" id="successNotification">
+            <i class="fas fa-check-circle"></i>
+            <span>¡Inicio de sesión exitoso! Redirigiendo...</span>
+        </div>
+        
+        <!-- Notificación de error -->
+        <div class="notification error" id="errorNotification">
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="errorMessage">Error en las credenciales</span>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+>>>>>>> 3d9ecd2 (Initial commit: Sistema de Login completo con dashboard)
 </body>
 </html>
