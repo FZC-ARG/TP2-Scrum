@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario de Inicio de Sesión</title>
+  <script>
+    function login(event) {
+      event.preventDefault(); // Evita que se recargue la página
+      
+      const usuario = document.getElementById("usuario").value;
+      const contrasena = document.getElementById("contrasena").value;
+
+      if (usuario === "admin" && contrasena === "1234") {
+        window.location.href = "inicio.html"; // Redirige
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+    }
+  </script>
 </head>
 <body>
   <h2>Iniciar Sesión</h2>
-  <form action="/login" method="post">
+  <form onsubmit="login(event)">
     <label for="usuario">Usuario:</label><br>
     <input type="text" id="usuario" name="usuario" required><br><br>
 
