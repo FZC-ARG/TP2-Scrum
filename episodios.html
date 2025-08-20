@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Episodios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .contenedor {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h2 {
+      margin: 0;
+    }
+
+    .btn-regresar {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-regresar:hover {
+      background: #0056b3;
+    }
+
+    .episodio {
+      background: #f0f4ff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .episodio button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 8px;
+    }
+
+    .episodio button:hover {
+      background: #0056b3;
+    }
+
+    .sinopsis {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="header">
+      <h2>Lista de Episodios</h2>
+      <a href="inicio.html" class="btn-regresar" style="background-color: red;">⬅ Regresar</a>
+    </div>
+    <div id="lista-episodios"></div>
+  </div>
+
+  <script>
+    // 📌 Lista de episodios
+    const episodios = [
+      { titulo: "Episodio 1: El fin del viaje", sinopsis: "Frieren se despide de sus compañeros tras derrotar al Rey Demonio, pero su inmortalidad la hace reflexionar sobre el tiempo compartido." },
+      { titulo: "Episodio 2: No tiene que ser magia", sinopsis: "Comienza a comprender que los gestos humanos tienen un valor emocional que va más allá de la magia." },
+      { titulo: "Episodio 3: Magia asesina", sinopsis: "Explora el uso de hechizos destructivos y la ética detrás de su aplicación." },
+      { titulo: "Episodio 4: La tierra donde descansan las almas", sinopsis: "Frieren visita las tumbas de sus amigos y enfrenta el duelo que había postergado." },
+      { titulo: "Episodio 5: Espectros de los difuntos", sinopsis: "Ilusiones mágicas la obligan a confrontar recuerdos y emociones enterradas." },
+      { titulo: "Episodio 6: El héroe del pueblo", sinopsis: "Se recuerda a Himmel desde la perspectiva de quienes lo conocieron y admiraron." },
+      { titulo: "Episodio 7: Un cuento de hadas", sinopsis: "Una criatura mágica pone a prueba el vínculo entre Frieren y Fern." },
+      { titulo: "Episodio 8: Frieren, la asesina", sinopsis: "Se revela cómo los demonios perciben a Frieren como una amenaza letal." },
+      { titulo: "Episodio 9: El aprendiz de Frieren", sinopsis: "Fern demuestra su crecimiento como maga y su independencia emocional." },
+      { titulo: "Episodio 10: El camino a seguir", sinopsis: "El grupo decide continuar su viaje hacia el norte, enfrentando nuevos desafíos." },
+      { titulo: "Episodio 11: El primer paso", sinopsis: "Llegan a una ciudad afectada por magia demoníaca y deben intervenir." },
+      { titulo: "Episodio 12: El mago de la torre", sinopsis: "Conocen a un mago solitario que guarda secretos sobre la magia antigua." },
+      { titulo: "Episodio 13: El valor de la vida", sinopsis: "Frieren reflexiona sobre la fragilidad humana y el impacto de sus decisiones." },
+      { titulo: "Episodio 14: El guerrero de hierro", sinopsis: "Aparece Stark, un joven guerrero con miedo al combate." },
+      { titulo: "Episodio 15: El combate de Stark", sinopsis: "Stark enfrenta su miedo y demuestra su valentía en batalla." },
+      { titulo: "Episodio 16: El pasado de Fern", sinopsis: "Se explora la historia de Fern y su relación con Heiter." },
+      { titulo: "Episodio 17: El examen preliminar", sinopsis: "Frieren se presenta al examen para convertirse en maga de primera clase." },
+      { titulo: "Episodio 18: El laberinto", sinopsis: "Los participantes enfrentan pruebas mágicas en un laberinto peligroso." },
+      { titulo: "Episodio 19: El grupo de Frieren", sinopsis: "Frieren, Fern y Stark forman equipo con otros magos para superar el examen." },
+      { titulo: "Episodio 20: El mago de clase primera", sinopsis: "Se revela el nivel de poder requerido para alcanzar el título." },
+      { titulo: "Episodio 21: El juicio de la verdad", sinopsis: "Los magos deben distinguir ilusiones de realidad en una prueba crítica." },
+      { titulo: "Episodio 22: La batalla final", sinopsis: "Frieren y sus aliados enfrentan una poderosa amenaza mágica." },
+      { titulo: "Episodio 23: El resultado del examen", sinopsis: "Se anuncian los resultados y Frieren reflexiona sobre su progreso." },
+      { titulo: "Episodio 24: El nuevo viaje", sinopsis: "El grupo retoma su travesía hacia el norte, con nuevos objetivos." },
+      { titulo: "Episodio 25: El pueblo de los demonios", sinopsis: "Llegan a una aldea donde los demonios aún ejercen influencia." },
+      { titulo: "Episodio 26: El recuerdo de Aura", sinopsis: "Frieren recuerda su enfrentamiento con la poderosa demonio Aura." },
+      { titulo: "Episodio 27: El sacrificio de Denken", sinopsis: "Denken, un mago veterano, toma una decisión crucial para proteger a los demás." },
+      { titulo: "Episodio 28: El futuro de los héroes", sinopsis: "Frieren mira hacia adelante, reconociendo el valor de sus nuevos vínculos." }
+    ];
+
+    // 📌 Renderizar episodios
+    const contenedor = document.getElementById("lista-episodios");
+
+    episodios.forEach((ep, index) => {
+      const div = document.createElement("div");
+      div.classList.add("episodio");
+
+      div.innerHTML = `
+        <button onclick="redirigir(${index+1})">${ep.titulo}</button>
+        <div class="sinopsis">${ep.sinopsis}</div>
+      `;
+
+      contenedor.appendChild(div);
+    });
+
+    function redirigir(num) {
+      window.location.href = `ep.html?ep=${num}`;
+    }
+  </script>
+</body>
+</html>

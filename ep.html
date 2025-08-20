@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Episodio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .contenedor {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    a, button {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 15px;
+      text-decoration: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    a:hover, button:hover {
+      background: #0056b3;
+    }
+
+    .botones-nav {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2 id="titulo">Episodio</h2>
+    <p id="sinopsis">Cargando...</p>
+
+    <div class="botones-nav">
+      <button id="btnPrev">⬅ Anterior</button>
+      <a href="episodios.html">⬅ Volver a la lista</a>
+      <button id="btnNext">Siguiente ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const episodios = {
+      1: { titulo: "Episodio 1: El fin del viaje", sinopsis: "Frieren se despide de sus compañeros tras derrotar al Rey Demonio, pero su inmortalidad la hace reflexionar sobre el tiempo compartido." ,},
+      2: { titulo: "Episodio 2: No tiene que ser magia", sinopsis: "Comienza a comprender que los gestos humanos tienen un valor emocional que va más allá de la magia." },
+      3: { titulo: "Episodio 3: Magia asesina", sinopsis: "Explora el uso de hechizos destructivos y la ética detrás de su aplicación." },
+      4: { titulo: "Episodio 4: La tierra donde descansan las almas", sinopsis: "Frieren visita las tumbas de sus amigos y enfrenta el duelo que había postergado." },
+      5: { titulo: "Episodio 5: Espectros de los difuntos", sinopsis: "Ilusiones mágicas la obligan a confrontar recuerdos y emociones enterradas." },
+      6: { titulo: "Episodio 6: El héroe del pueblo", sinopsis: "Se recuerda a Himmel desde la perspectiva de quienes lo conocieron y admiraron." },
+      7: { titulo: "Episodio 7: Un cuento de hadas", sinopsis: "Una criatura mágica pone a prueba el vínculo entre Frieren y Fern." },
+      8: { titulo: "Episodio 8: Frieren, la asesina", sinopsis: "Se revela cómo los demonios perciben a Frieren como una amenaza letal." },
+      9: { titulo: "Episodio 9: El aprendiz de Frieren", sinopsis: "Fern demuestra su crecimiento como maga y su independencia emocional." },
+      10: { titulo: "Episodio 10: El camino a seguir", sinopsis: "El grupo decide continuar su viaje hacia el norte, enfrentando nuevos desafíos." },
+      11: { titulo: "Episodio 11: El primer paso", sinopsis: "Llegan a una ciudad afectada por magia demoníaca y deben intervenir." },
+      12: { titulo: "Episodio 12: El mago de la torre", sinopsis: "Conocen a un mago solitario que guarda secretos sobre la magia antigua." },
+      13: { titulo: "Episodio 13: El valor de la vida", sinopsis: "Frieren reflexiona sobre la fragilidad humana y el impacto de sus decisiones." },
+      14: { titulo: "Episodio 14: El guerrero de hierro", sinopsis: "Aparece Stark, un joven guerrero con miedo al combate." },
+      15: { titulo: "Episodio 15: El combate de Stark", sinopsis: "Stark enfrenta su miedo y demuestra su valentía en batalla." },
+      16: { titulo: "Episodio 16: El pasado de Fern", sinopsis: "Se explora la historia de Fern y su relación con Heiter." },
+      17: { titulo: "Episodio 17: El examen preliminar", sinopsis: "Frieren se presenta al examen para convertirse en maga de primera clase." },
+      18: { titulo: "Episodio 18: El laberinto", sinopsis: "Los participantes enfrentan pruebas mágicas en un laberinto peligroso." },
+      19: { titulo: "Episodio 19: El grupo de Frieren", sinopsis: "Frieren, Fern y Stark forman equipo con otros magos para superar el examen." },
+      20: { titulo: "Episodio 20: El mago de clase primera", sinopsis: "Se revela el nivel de poder requerido para alcanzar el título." },
+      21: { titulo: "Episodio 21: El juicio de la verdad", sinopsis: "Los magos deben distinguir ilusiones de realidad en una prueba crítica." },
+      22: { titulo: "Episodio 22: La batalla final", sinopsis: "Frieren y sus aliados enfrentan una poderosa amenaza mágica." },
+      23: { titulo: "Episodio 23: El resultado del examen", sinopsis: "Se anuncian los resultados y Frieren reflexiona sobre su progreso." },
+      24: { titulo: "Episodio 24: El nuevo viaje", sinopsis: "El grupo retoma su travesía hacia el norte, con nuevos objetivos." },
+      25: { titulo: "Episodio 25: El pueblo de los demonios", sinopsis: "Llegan a una aldea donde los demonios aún ejercen influencia." },
+      26: { titulo: "Episodio 26: El recuerdo de Aura", sinopsis: "Frieren recuerda su enfrentamiento con la poderosa demonio Aura." },
+      27: { titulo: "Episodio 27: El sacrificio de Denken", sinopsis: "Denken, un mago veterano, toma una decisión crucial para proteger a los demás." },
+      28: { titulo: "Episodio 28: El futuro de los héroes", sinopsis: "Frieren mira hacia adelante, reconociendo el valor de sus nuevos vínculos." }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    let num = parseInt(params.get("ep")) || 1;
+
+    function mostrarEpisodio() {
+      if (episodios[num]) {
+        document.getElementById("titulo").innerText = episodios[num].titulo;
+        document.getElementById("sinopsis").innerText = episodios[num].sinopsis;
+      } else {
+        document.getElementById("titulo").innerText = "Episodio no encontrado";
+        document.getElementById("sinopsis").innerText = "El episodio que buscas no existe.";
+      }
+    }
+
+    // Mostrar episodio actual
+    mostrarEpisodio();
+
+    // Botón Anterior
+    document.getElementById("btnPrev").addEventListener("click", () => {
+      if (num > 1) {
+        num--;
+        window.location.href = `ep.html?ep=${num}`;
+      }
+    });
+
+    // Botón Siguiente
+    document.getElementById("btnNext").addEventListener("click", () => {
+      if (num < Object.keys(episodios).length) {
+        num++;
+        window.location.href = `ep.html?ep=${num}`;
+      }
+    });
+  </script>
+</body>
+</html>
+    
